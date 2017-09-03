@@ -1,0 +1,26 @@
+Notes:
+
+Find PI's
+sudo nmap -sn 192.168.66.0/24 | awk '/^Nmap/{ip=$NF}/B8:27:EB/{print ip}'
+
+
+
+login: pi / raspberry
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null pi@192.168.2.128
+
+
+
+enable camera:
+/boot/config.txt
+
+add: 
+start_x=1
+gpu_mem=128
+
+
+
+Stream video:
+on Computer: vlc tcp/h264://192.168.66.154:3333
+on pi:       raspivid -t 0 -l -o tcp://0.0.0.0:3333
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
